@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos en Venta</title>
+    <!-- Enlace a Bootstrap 5 (CDN) -->
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a los estilos personalizados -->
+    <link href="lib/css/estilobase.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mi Tienda Online</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Productos</li>
+        </ol>
+    </nav>
+
+    <!-- Contenedor de los productos -->
+    <div class="container my-4">
+        <h2 class="text-center mb-4">Nuestros Productos</h2>
+        <div class="row" id="product-list">
+            <!-- Aquí se generarán las tarjetas de los productos -->
+        </div>
+    </div>
+
+    <!-- Modal para detalles del producto -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Detalles del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="product-details">
+                        <h3 id="product-name" class="mb-3 text-start"></h3>
+                        <p id="product-description" class="text-dark text-start"></p>
+
+                        <!-- Sección de Precios -->
+                        <div id="product-price" class="text-start">
+                            <table class="table table-transparent">
+                                <tbody>
+                                    <tr>
+                                        <td id="old-price" class="text-start"></td>
+                                        <td id="new-price" class="text-end"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Galería de imágenes -->
+                        <div id="product-image-main" class="mb-3 text-center">
+                            <img src="" class="img-fluid" id="main-image" alt="Imagen Principal">
+                        </div>
+
+                        <div id="product-image-gallery" class="d-flex justify-content-start mb-4">
+                            <!-- Las miniaturas de las imágenes -->
+                        </div>
+
+                        <div id="product-specifications">
+                            <h5 class="text-start">Especificaciones:</h5>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Característica</th>
+                                        <th>Detalle</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="spec-table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a href="https://wa.me/?text=¡Me%20interesa%20el%20producto%20%3A%20" id="whatsapp-button" class="btn btn-success" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Comprar vía WhatsApp
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="lib/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/js/scriptbase.js"></script>
+</body>
+
+</html>

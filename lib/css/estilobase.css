@@ -1,0 +1,166 @@
+/* Estilo general de la tarjeta */
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Para posicionar el texto de "OFERTA!" */
+}
+
+/* Efecto de resaltar las tarjetas cuando se pasa el mouse */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para resaltar el precio en oferta */
+.price-offer {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0a9e08;
+}
+
+/* Estilo para las tarjetas con oferta: texto sobre la imagen */
+.card.offer {
+    background-color: #d4ffea; /* Fondo rojo claro */
+}
+
+/* Texto "OFERTA!" sobre la imagen */
+.card.offer .offer-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Estilo para el precio anterior (tachado y gris) */
+.old-price {
+    text-decoration: line-through;
+    font-size: 1.3em;
+    color: #738791;
+}
+
+/* Estilos para la sección de precios en el modal */
+#product-price td {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#old-price {
+    color: #738791; /* Gris para el precio anterior */
+}
+
+#new-price {
+    color: #0a9e08; /* Verde para el precio actual */
+}
+
+/* Estilo para el modal */
+#productModal .modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#productModal .modal-header {
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#productModal .modal-body {
+    padding: 2rem;
+}
+
+#product-image-main img {
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 0 auto; /* Centra la imagen principal */
+    display: block;
+}
+
+#product-image-gallery img {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    margin-right: 10px;
+    opacity: 0.7;
+    border-radius: 5px;
+}
+
+#product-image-gallery img:hover {
+    opacity: 1;
+    border: 2px solid #007bff;
+}
+
+#product-specifications {
+    margin-top: 20px;
+}
+
+#product-specifications table {
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Alineación de la tabla */
+.table {
+    width: 90%;
+    margin: 0 auto; /* Centra la tabla */
+}
+
+.table th, .table td {
+    text-align: left; /* Alineación a la izquierda */
+}
+
+/* Estilo de los botones en el footer del modal */
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.modal-footer .btn {
+    width: 48%; /* Ajusta los botones para que ocupen la mitad del ancho */
+}
+
+/* Mejora la visibilidad en pantallas pequeñas */
+@media (max-width: 576px) {
+    #product-image-gallery img {
+        width: 50px;
+        height: 50px;
+    }
+    .modal-dialog {
+        max-width: 90%;
+    }
+}
+
+/* Estilos para las etiquetas "Antes" y "Ahora" */
+.price-label {
+    color: black; /* Color negro para las etiquetas "Antes" y "Ahora" */
+    font-weight: normal; /* Asegúrate de que el texto no esté en negrita */
+}
+
+/* Estilo para el precio anterior (tachado y gris) */
+.price-old {
+    font-size: 1.2em;
+    text-decoration: line-through;
+    color: red; /* Gris oscuro para el precio anterior */
+}
+
+/* Estilo para el precio actual (verde) */
+.price-new {
+    font-size: 1.2em;
+    color: #0a9e08;; /* Verde para el precio actual */
+}
+
+/* Estilo para los productos sin oferta */
+.price-no-offer {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0a9e08; /* Amarillo para los precios sin oferta */
+}

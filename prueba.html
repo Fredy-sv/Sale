@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Productos</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Catálogo de Productos</h1>
+    <div class="row" id="productos">
+      <!-- Las tarjetas de los productos se llenarán aquí mediante JavaScript -->
+    </div>
+  </div>
+
+  <!-- Modal para mostrar detalles del producto -->
+  <div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productoModalLabel">Detalles del Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="productoDetalles">
+          <!-- Aquí se llenarán las imágenes y detalles del producto -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS y Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    // Array de productos con varias imágenes
+    const productos = [
+      {
+        id: 1, 
+        nombre: "Producto 1", 
+        descripcion: "Descripción del Producto 1", 
+        precio: "$10",
+        imagenes: [
+          "img/astro.jpg",
+          "img/capi.jpg",
+          "img/cojin.jpg"
+        ]
+      },
+      {
+        id: 2, 
+        nombre: "Producto 2", 
+        descripcion: "Descripción del Producto 2", 
+        precio: "$20",
+        imagenes: [
+            "img/astro.jpg",
+          "img/capi.jpg",
+          "img/cojin.jpg"
+        ]
+      },
+      {
+        id: 3, 
+        nombre: "Producto 3", 
+        descripcion: "Descripción del Producto 3", 
+        precio: "$30",
+        imagenes: [
+            "img/astro.jpg",
+          "img/capi.jpg",
+          "img/cojin.jpg"
+        ]
+      }
+    ];
+
+    // Función para generar las tarjetas de productos
+    function mostrarProductos() {
+      const contenedor = document.getElementById('productos');
+      productos.forEach(producto => {
+        const tarjeta = `
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#productoModal" onclick="mostrarDetalles(${producto.id})">
+              <img src="${producto.imagenes[0]}" class="card-img-top" alt="${producto.nombre}">
+              <div class="card-body">
+                <h5 class="card-title">${producto.nombre}</h5>
+                <p class="card-text">${producto.descripcion}</p>
+                <p class="card-text"><strong>${producto.precio}</strong></p>
+              </div>
+            </div>
+          </div>
+        `;
+        contenedor.innerHTML += tarjeta;
+      });
+    }
+
+    // Función para mostrar los detalles del producto en el modal
+    function mostrarDetalles(id) {
+      const producto = productos.find(p => p.id === id);
+      const detallesModal = document.getElementById('productoDetalles');
+
+      // Generar el carrusel de imágenes
+      const carruselImagenes = producto.imagenes.map((imagen, index) => {
+        return `
+          <div class="carousel-item ${index === 0 ? 'active' : ''}">
+            <img src="${imagen}" class="d-block w-100" alt="Imagen del Producto">
+          </div>
+        `;
+      }).join('');
+
+      detallesModal.innerHTML = `
+        <h5>${producto.nombre}</h5>
+        <p><strong>Descripción:</strong> ${producto.descripcion}</p>
+        <p><strong>Precio:</strong> ${producto.precio}</p>
+
+        <!-- Carrusel de imágenes -->
+        <div id="carouselImagenes" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            ${carruselImagenes}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselImagenes" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselImagenes" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      `;
+    }
+
+    // Llamar a la función para mostrar los productos al cargar la página
+    mostrarProductos();
+  </script>
+</body>
+</html>
