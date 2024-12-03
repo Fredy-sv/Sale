@@ -1,0 +1,54 @@
+/* Estilo general de la tarjeta */
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Efecto hover */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge de oferta */
+.card.offer .offer-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 15px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Estilos de precios */
+.price-offer {
+    font-size: 1.5em;
+    color: #0a9e08;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #738791;
+}
+
+.price-no-offer {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Vista de móvil: 2 tarjetas por fila */
+@media (max-width: 576px) {
+    .card {
+        margin-bottom: 15px;
+    }
+    #product-list > div {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
